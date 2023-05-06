@@ -1,0 +1,64 @@
+//Cristiane de Paula Oliveira - 261424
+// Estrutura de Dados
+// Trabalho Final
+
+Grafo implementado utilizando lista de adjacências. 
+As estruturas e funções para grafos estão na biblioteca "grafos.h"
+Tanto a lista de vértices quanto a lista de arestas foram implementadas utilizando listas encadeadas.
+Cada vértice do grafo representa uma pessoa e as arestas representam as dívidas/emprestimos.
+As estruturas utilizadas para o grafo foram:
+> pessoa_t;
+	Contém char para nome e login
+> elem_pessoa;
+	Contém pessoa_t, ponteiro para próximo elem_pessoa e lista_arestas
+> elem_viz;
+	Contém ponteiro para elem_pessoa, peso da aresta e ponteiro para próximo elem_viz
+> lista_vertices;
+	Contém ponteiro para início da lista de vertices
+> lista_arestas.
+	Contém ponteiro para início da lista de arestas
+
+As funções criadas para trabalhar com grafos foram:
+> void inicializa_grafo(lista_vertices *l);
+	Para inicializar a lista de vértices do grafo
+> void inicializa_aresta(lista_arestas *l);
+	Para inicializar a lista de vizinhos de cada vertice do grafo
+> int insere_vertice(lista_vertices *l, pessoa_t usuario);
+	Insere novo vertice no fim da lista de vertices
+> int remove_vertice(lista_vertices *l, char *login);
+	Remove vértice da lista de vertices
+> elem_pessoa *busca_login(lista_vertices *l,char *login);
+	Retorna elemento do grafo buscando pelo login
+> int insere_aresta(lista_arestas *l,elem_pessoa *pessoa, float peso);
+	Insere aresta entre dois vértices do grafo
+> int vincular_vertices(lista_vertices *l, char *login_origem, char *login_destino, float peso);
+	Busca os elementos que se deseja inserir aresta e insire aresta
+> pessoa_t *consulta_vizinhos(lista_vertices *l, pessoa_t pessoa);
+	Consulta os vizinhos de determinado grafo
+	Obs.: Não deu tempo de implementar mas essa funcao seria utilizada para listar dívidas ou imprestimos e balanço atual
+
+Uma fila foi criada para armazenar as transações entre usuários.
+As estruturas e funções para filas estão na biblioteca "filas.h"
+As estruturas utilizadas para a fila foram:
+> transacao;
+	Contém os logins (char) das pessoas e a dívida (float) entre elas
+> nodo_fila_t;
+	Contém a transação e ponteiros para o próximo e o anterior nodo da fila
+> fila_t;
+	Contém ponteiro para o início e fim da fila e o tamanho (int) da fila
+
+As funcoes criadas para trabalhar com a fila foram:
+> void inicializa_fila(fila_t *f);
+	Inicializar a fila
+> void dequeue(fila_t *f);
+	Remover do início da fila
+> void enqueue(fila_t *f, transacao dado);
+	Insere no fim da fila
+> transacao front(fila_t *f);
+	Retorna o primeiro elemento da fila
+> void imprime_fila(fila_t *f)
+	Imprime listas das até 10 últimas transações
+
+
+OBS. 1: Não deu tempo de implementar função que lê e armazena em arquivos. Portanto, a leitura é feita do teclado.
+OBS. 2: Também não deu tempo de implementar busca por nomes em arvores.
